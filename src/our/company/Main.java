@@ -7,7 +7,8 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Class math = MathClass.class;
+        //Class math = MathClass.class;
+        String math = "our.company.MathClass";
         try {
             start(math);
         } catch (ClassNotFoundException | IllegalAccessException | InvocationTargetException | InstantiationException e) {
@@ -19,7 +20,7 @@ public class Main {
     static void start(Object name) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, InstantiationException {
         Class newClass;
         if (name instanceof String){
-            newClass = name.getClass();
+            newClass = Class.forName((String) name);
         } else {
             newClass = (Class) name;
         }
